@@ -43,7 +43,7 @@ $(document).ready(function(){
   });
 
 
-  // clicksids
+  // photo enlarges
   $('.image-container img').hover(
     // Mouse In
     function(){

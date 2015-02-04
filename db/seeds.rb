@@ -9,7 +9,6 @@
 
 
 https://c1.staticflickr.com/5/4043/4524940879_2ba9e74c71.jpg
-http://pixabay.com/static/uploads/photo/2012/02/22/09/12/leaf-15239_640.jpg
 https://spotsandgreens.files.wordpress.com/2012/04/100_6446.jpg
 https://c2.staticflickr.com/8/7076/6866323270_e26c35edbb.jpg
 http://www.pd4pic.com/images/bird-bloom-blossom-exotic-flora-flower-leaf.jpg
