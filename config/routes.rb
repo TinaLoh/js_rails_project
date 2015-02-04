@@ -10,9 +10,8 @@ Rails.application.routes.draw do
   delete "/destroy", to: "photos#destroy"
 
 
-   resources :photos do
-     resources :comments
-   end
+   resources :photos
+     
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

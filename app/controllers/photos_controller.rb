@@ -16,9 +16,7 @@ class PhotosController < ApplicationController
   def destroy
     @photo = Photo.find(params[:id])
     if @photo.destroy
-      head 200
-    else
-      head 500  
+      render json: @photo
     end
   end
 
