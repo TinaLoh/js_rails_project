@@ -3,15 +3,17 @@ $(document).ready(function(){
   $('textarea').on('keypress', function(event) {
     if(event.charCode == 13) {
       event.preventDefault();
-      var comment = $(this).val();
-      $.ajax({
-        url: "/photos/:photo_id/comments",
-        type: "post",
-        data: {comment: comment}
-      })
-    }
-  })
 
+      var body = $(this).val();
+
+      $.ajax('/comments', {
+        type: 'post',
+        data: { comment: { body: body, photo_id: 'what goes here?' } }
+      }).done(function() {
+        var newComment = $("<textarea></textarea>")
+      });
+    }
+  });
 
   $("form").submit(function(event){
     event.preventDefault();
@@ -19,7 +21,7 @@ $(document).ready(function(){
     var caption = $("#caption").val();
     var location = $("#location").val();
     $.ajax({
-      url: "/create",
+      url: "/photos",
       type: "post",
       data: {photo: {url: url, caption: caption, location: location}}
     })
