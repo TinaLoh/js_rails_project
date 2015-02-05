@@ -48,7 +48,7 @@ $(document).ready(function(){
     var photo = $(this).parent();
     var id = photo.attr("data-id");
     $.ajax({
-      url: "/destroy",
+      url: "/photos/" + id,
       type: "delete",
       data: {id: id}
     })
