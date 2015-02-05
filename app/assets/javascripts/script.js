@@ -35,6 +35,9 @@ $(document).ready(function(){
       newPhoto.hide();
       $("#photos").append(newPhoto);
       newPhoto.fadeIn();
+      $("#url").val('');
+      $("#caption").val('');
+      $("#location").val('');
     });
   });
 
@@ -55,25 +58,23 @@ $(document).ready(function(){
   });
 
   // animate on click
-  $('.image-container img').on('click', function(){
+  $(document).on('click', '.image-container img', function() {
     $(this).animate({width: 500, height: 500}, 1000);
   })
 
   // de-animate on mouseleave
-  $('.image-container img').on('mouseleave', function(){
+  $(document).on('mouseleave', '.image-container img', function() {
     $(this).animate({width: 100, height: 100}, 1000);
   })
 
 
   // show shadow on hover
-  $('.image-container').hover(
-    // Mouse In
-    function(){
-      $(this).children('img').css('box-shadow', '4px 4px 10px rgba(0,0,0,.5)');
-    },
-    // Mouse Out
-    function(){
-      $(this).children('img').css('box-shadow', 'none');
-    });
+  $(document).on('mouseenter', '.image-container', function() {
+    $(this).children('img').css('box-shadow', '4px 4px 10px rgba(0,0,0,.5)');
+  })
+  $(document).on('mouseleave', '.image-container', function() {
+    $(this).children('img').css('box-shadow', 'none');
+  })
+
 
 });
