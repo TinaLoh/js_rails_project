@@ -16,11 +16,11 @@
 <div id="photos">
     <% @photos.each do |photo| %>
       <div class="image-container" data-id=<%= photo.id %>>
-        <div class="delete">X</div>
+        <div class="delete pull-right">X</div>
         <img src="<%= photo.url %>" style="height: 100px; width: 100px">
         <h3><%= photo.caption %></h3>
         <p>taken at <%= photo.location %></p>
-
+        <textarea></textarea>
       </div>
     <% end %>
 </div>

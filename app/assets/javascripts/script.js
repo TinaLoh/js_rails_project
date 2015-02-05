@@ -1,5 +1,18 @@
 $(document).ready(function(){
 
+  $('textarea').on('keypress', function(event) {
+    if(event.charCode == 13) {
+      event.preventDefault();
+      var comment = $(this).val();
+      $.ajax({
+        url: "/photos/:photo_id/comments",
+        type: "post",
+        data: {comment: comment}
+      })
+    }
+  })
+
+
   $("form").submit(function(event){
     event.preventDefault();
     var url = $("#url").val();
@@ -14,10 +27,11 @@ $(document).ready(function(){
       var id = data.id;
       var newPhoto = $("<div class='image-container'></div>");
       newPhoto.attr("data-id", id);
-      newPhoto.append("<div class='delete'>X</div>");
+      newPhoto.append("<div class='delete pull-right'>X</div>");
       newPhoto.append("<img src=" + url + " style='height: 100px; width: 100px'>");
       newPhoto.append("<h3>" + caption + "</h3>");
       newPhoto.append("<p>taken at " + location + "</p>");
+      newPhoto.append("<textarea></textarea>");
       newPhoto.hide();
       $("#photos").append(newPhoto);
       newPhoto.fadeIn();
@@ -28,7 +42,6 @@ $(document).ready(function(){
   $(document).on("click", ".delete", function(){
     var photo = $(this).parent();
     var id = photo.attr("data-id");
-    console.log(id);
     $.ajax({
       url: "/destroy",
       type: "delete",
@@ -41,17 +54,26 @@ $(document).ready(function(){
     });
   });
 
+  // animate on click
+  $('.image-container img').on('click', function(){
+    $(this).animate({width: 500, height: 500}, 1000);
+  })
 
-  // photo enlarges
-  $('.image-container img').hover(
+  // de-animate on mouseleave
+  $('.image-container img').on('mouseleave', function(){
+    $(this).animate({width: 100, height: 100}, 1000);
+  })
+
+
+  // show shadow on hover
+  $('.image-container').hover(
     // Mouse In
     function(){
-      $(this).animate({width: 500, height: 500}, 1000);
-      $(this).css('border', '5px solid black');
+      $(this).children('img').css('box-shadow', '4px 4px 10px rgba(0,0,0,.5)');
     },
     // Mouse Out
     function(){
-        $(this).animate({width: 100, height: 100}, 1000);
+      $(this).children('img').css('box-shadow', 'none');
     });
 
 });

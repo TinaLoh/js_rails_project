@@ -26,3 +26,22 @@ body {
 .pull-right {
   float: right;
 }
+
+.image-container {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #efefef;
+
+    .delete {
+        color: #888;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    img {
+      display: box;
+      border-radius: 50px;
+      cursor: pointer;
+    }
+}
