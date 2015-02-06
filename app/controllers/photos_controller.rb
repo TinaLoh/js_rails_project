@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
 
+
   def index
     @photos = Photo.all
   end
@@ -23,6 +24,6 @@ class PhotosController < ApplicationController
   private
 
   def photos_params
-    params.require(:photo).permit(:url, :caption, :location)
+    params.require(:photo).permit(:url, :caption, :location, :user_id)
   end
 end
